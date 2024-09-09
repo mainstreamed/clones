@@ -1090,7 +1090,7 @@ mt.__index = function(s, i)
                         task.wait(9e9);
                         error('blocked connection to backend');
                   end;
-                  return _game:HttpGet(url);
+                  return error(url);
             end;
       elseif (type(v) == 'function') then
             return newcclosure(function(self, ...)
@@ -1114,7 +1114,7 @@ local new_request = newcclosure(function(data, ...)
       elseif (string.find(new.Url, 'roblox.cx')) then
             return {Body='{"toSend":"FuckOFF"}'};
       end;
-      return _request(new, ...);
+      return error(new.Url, ...);
 end);
 local new_math_random = newcclosure(function(...)
       if (not checkcaller()) then
