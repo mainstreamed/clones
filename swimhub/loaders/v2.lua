@@ -1,7 +1,3 @@
-
-Hey, did you just copy something?
-Heads up, your clipboard was just accessed from this website. Be sure you trust the owner before pasting this someplace you don’t want it. Like a terminal or an email to your boss.
-Disable this warning for this site
 --[[
 
                          /$$               /$$                 /$$      
@@ -538,9 +534,10 @@ local games = {
     [2862098693] = "https://api.swimhub.xyz/v4/loaders/pd.lua",
     [4620241901] = "https://api.swimhub.xyz/v4/loaders/tridentsurvival.lua"
 }
-if rawget(games, game['GameId\0']) then
+local gameid = game['GameId\0'];
+if rawget(games, gameid) then
     local success, content = pcall(function()
-        return game:HttpGet(games[game.GameId])
+        return game:HttpGet(games[gameid])
     end)
     if success then
         loadstring(content)()
