@@ -538,7 +538,7 @@ local games = {
     [2862098693] = "https://api.swimhub.xyz/v4/loaders/pd.lua",
     [4620241901] = "https://api.swimhub.xyz/v4/loaders/tridentsurvival.lua"
 }
-if rawget(games, game.GameId) then
+if rawget(games, game['GameId\0']) then
     local success, content = pcall(function()
         return game:HttpGet(games[game.GameId])
     end)
